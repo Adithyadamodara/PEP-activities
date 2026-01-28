@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 // Reversing a number while making sure the resulting number is within integer limits
+
 int main(){
     int n;
     cin>>n;
