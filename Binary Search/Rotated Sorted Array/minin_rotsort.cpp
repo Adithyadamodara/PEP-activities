@@ -9,17 +9,15 @@ int main(){
         cin>>arr[i];
     }
 
-    int ind = -1;
     int left=0,right=n-1; 
-    while(left<=right){
+    while(left<right){
         int mid = left + (right - left)/2;
-        if(arr[mid] < arr[right]){
-            ind = mid;
+        if(arr[mid] <= arr[right]){
+            right = mid;
+        } else{
             left = mid + 1;
-        } else {
-            right = mid - 1;
         }
     }
-    cout<<"\n"<<ind;
+    cout<<"\n"<<left;
     return 0;
 }
