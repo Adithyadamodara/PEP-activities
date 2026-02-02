@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// GIven a MOUNTAIN ARRAY
+// Given a MOUNTAIN ARRAY
 // Find the given target element present in the leftmost position
 
 
