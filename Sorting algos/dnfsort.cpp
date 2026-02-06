@@ -6,7 +6,7 @@ using namespace std;
 
 /* Constraints:
     1. In place
-    2. compolexity  < O(n^2)
+    2. complexity  < O(n^2)
     3. No extra space
 
     DNF
