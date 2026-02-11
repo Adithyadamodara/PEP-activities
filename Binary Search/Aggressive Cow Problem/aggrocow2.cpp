@@ -4,7 +4,7 @@ using namespace std;
 // Aggressive cow by counting and maintaining the max distance
 
 bool isPossible(vector<int>& arr,int n, int k, int d){
-    int count=1;
+    int count = 1;
     int lastPos = arr[0];
     
     for(int i=1;i<n;i++){
