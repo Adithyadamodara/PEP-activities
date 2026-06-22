@@ -40,6 +40,25 @@ int main(){
     // int x = 30, y = 20; 
     // cout<<(x > y ? x:y); 
     
-    
+    // ----------------------
+
+    // for loop
+
+    // int i = 0;
+    // for(int i=0;i<10;i++){
+    //     cout<<i<< " ";
+    // }
+
+    // int i = 0;
+    // while(i<5){
+    //     cout<< i++<< " ";
+    // }
+
+    // int i=0;
+    // do {
+    //     cout<<i++<<" ";
+    // } while(i<5);
+
+
     return 0;
 }
