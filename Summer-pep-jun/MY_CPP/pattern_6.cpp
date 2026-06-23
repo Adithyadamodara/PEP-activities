@@ -58,6 +58,6 @@ int main(){
     //     if(i==n-1) t-=2;
     //     cout<<endl;
     // }
-    
+        
     return 0;
 }
