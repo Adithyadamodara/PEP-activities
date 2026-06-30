@@ -78,6 +78,62 @@ public:
     }
 };
 
+// https://www.geeksforgeeks.org/problems/remove-duplicate-elements-from-sorted-array/1
+
+class Solution {
+  public:
+    vector<int> removeDuplicates(vector<int> &arr) {
+        // code here
+        int j = 0;
+        int n = arr.size();
+        for(int i=1;i<n;i++){
+            if(arr[i]!=arr[j]){
+                j++;
+                arr[j] = arr[i];
+            }
+        }
+        if(n>1 && j==0){
+            return {arr[0]};
+        }
+        for(int i=0;i<n-j-1;i++){
+            arr.pop_back();
+        }
+        return arr;
+    }
+};
+
+
+// https://leetcode.com/problems/merge-sorted-array/
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int t = m+n;      
+        m--;
+        n--;
+        for(int tt = t-1;tt>=0;tt--){
+            if(n>=0 && m>=0){
+                if(nums1[m] >= nums2[n]){
+                    nums1[tt] = nums1[m];
+                    m--;
+                } 
+                else {
+                    nums1[tt] = nums2[n];
+                    n--;
+                }
+            } else {
+                if(n>=0){
+                    nums1[tt] = nums2[n--];
+                }
+                if(m>=0){
+                    nums1[tt] = nums1[m--];
+                }
+            }
+        }
+
+    }
+};
+
 
 
 int main(){
@@ -87,3 +143,4 @@ int main(){
     
     return 0;
 }
+
