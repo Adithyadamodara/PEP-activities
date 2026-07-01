@@ -2,16 +2,14 @@
 using namespace std;
 
 string reverseString(string& str){
-    int i = 0;
-    int j = str.size()-1;
-    int s = str.size();
-    string res = "";
+    int left = 0;
+    int right = str.size()-1;
     
-    while(i<s){
-        res+=str[j--];
-        i++;
+    
+    while(left<=right){
+        swap(str[left++], str[right--]);
     }
-    return res;
+    return str;
 }
 
 
