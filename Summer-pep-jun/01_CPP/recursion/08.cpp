@@ -1,6 +1,5 @@
 // Linear search & binary search using recursion
 
-
 #include<iostream>
 using namespace std;
 
