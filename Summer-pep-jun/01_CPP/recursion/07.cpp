@@ -1,16 +1,5 @@
 // Recursion
 
-
-#include<iostream>
-using namespace std;
-
-void p(int n){
-    if(n==0) return;
-    p(n-1);
-    cout<<n<<" ";
-}
-
-
 // https://www.geeksforgeeks.org/problems/factorial5739/1
 
 
