@@ -229,3 +229,90 @@ public:
         return fresh == 0 ? time: -1; 
     }
 };  
+
+
+// https://leetcode.com/problems/01-matrix/description/
+
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        int m = mat.size();
+        int n = mat[0].size();
+        vector<vector<int>> res(m, vector<int>(n,0));
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        queue<pair<pair<int,int>,int>> qu;
+                    
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(mat[i][j]==0){
+                    qu.push({{i,j},0});
+                    visited[i][j] = 1;
+                }
+            }
+        }
+        int delRow[] = {-1,0,+1,0};
+        int delCol[] = {0,+1,0,-1};
+
+        while(!qu.empty()){
+            int r = qu.front().first.first;
+            int c = qu.front().first.second;
+            int dist = qu.front().second;
+            qu.pop();
+            res[r][c] = dist;
+            for(int i=0;i<4;i++){
+                int row = r + delRow[i];
+                int col = c + delCol[i];
+                if(row >= 0 && col >= 0 && row < m && col < n && !visited[row][col]){
+                    visited[row][col] = 1;
+                    qu.push({{row,col}, dist+1});
+                }
+            }
+        }
+        return res;
+    
+    }
+};
+
+
+// https://leetcode.com/problems/map-of-highest-peak/description/
+
+class Solution {
+public:
+    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
+        const int m = isWater.size();
+        const int n = isWater[0].size();
+        vector<vector<int>> res(m, vector<int>(n, 0));
+        vector<vector<bool>> visited(m, vector<bool>(n, 0));
+
+        queue<pair<pair<int,int>,int>> qu;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(isWater[i][j] == 1){
+                    visited[i][j] = 1;
+                    qu.push({{i,j}, 0});
+                }
+            }
+        }
+
+        int delRow[] = {-1,0,1,0};
+        int delCol[] = {0,-1,0,1};
+
+        while(!qu.empty()){
+            int r = qu.front().first.first;
+            int c = qu.front().first.second;
+            int dist = qu.front().second;
+            qu.pop();
+            res[r][c] = dist;
+            for(int i=0;i<4;i++){
+                int row = r + delRow[i];
+                int col = c + delCol[i];
+                if(row>=0 && col>=0 && row<m && col<n && !visited[row][col]){
+                    visited[row][col] = 1;
+                    qu.push({{row,col}, dist+1});
+                }
+            }
+        }
+        return res;
+    }
+};
