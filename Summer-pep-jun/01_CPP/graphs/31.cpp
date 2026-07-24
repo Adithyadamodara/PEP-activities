@@ -187,3 +187,41 @@ public:
         return true;
     }
 };
+
+
+// https://leetcode.com/problems/number-of-islands/
+
+class Solution {
+public:
+    int rowDir[4]={0, 1, 0, -1};
+    int colDir[4]={1, 0, -1, 0};
+    void dfs(int r, int c, vector<vector<char>>& grid){
+        int m = grid.size();
+        int n = grid[0].size();
+        grid[r][c] = '0';
+
+        for(int i=0;i<4;i++){
+            int row = r + rowDir[i];
+            int col = c + colDir[i];
+            if(!(row<0 || col<0 || col == n || row == m) && grid[row][col] == '1'){
+                dfs(row, col, grid);
+            }
+        }
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int count = 0;
+        const int m = grid.size();
+        const int n = grid[0].size();
+        vector<vector<bool>> visited(m, vector<bool>(n,false));
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(!visited[i][j] && grid[i][j] == '1'){
+                    count++;
+                    dfs(i, j, grid);
+                }
+            }
+        }
+        return count;
+    }
+};
